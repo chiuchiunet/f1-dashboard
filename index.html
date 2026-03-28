@@ -9,7 +9,7 @@
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
                max-width: 1000px; margin: 0 auto; padding: 20px; background: #1a1a2e; color: #eee; }
         h1 { color: #e94560; margin-bottom: 10px; }
-        h2 { color: #0f3460; border-bottom: 2px solid #e94560; padding-bottom: 10px; }
+        h2 { color: #e94560; border-bottom: 2px solid #0f3460; padding-bottom: 10px; }
         
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 10px; }
         .race-info { color: #888; }
@@ -43,8 +43,6 @@
         .whatsapp-box { background: #25D366; color: #fff; padding: 20px; border-radius: 8px; 
                         font-family: -apple-system, BlinkMacSystemFont, sans-serif; white-space: pre-wrap; 
                         line-height: 1.6; }
-        .whatsapp-box .title { font-weight: bold; font-size: 18px; }
-        .whatsapp-box .section { border-bottom: 1px solid rgba(255,255,255,0.3); padding: 10px 0; }
         
         .copy-btn { background: #25D366; color: white; border: none; padding: 10px 20px; 
                     border-radius: 5px; cursor: pointer; font-size: 14px; margin-top: 10px; }
@@ -61,10 +59,12 @@
     <div class="header">
         <div>
             <h1>🏎️ F1 Dashboard</h1>
-            <div class="race-info">Suzuka • Japan</div>
+            <div class="race-info" id="raceInfo">Suzuka • Japan</div>
         </div>
         <select id="raceSelect" onchange="loadRace(this.value)">
-            <option value="3" selected>2026-03-28 - Japan</option><option value="1" >2026-03-15 - China</option><option value="2" >2026-03-08 - Australia</option>
+            <option value="3" selected>2026-03-28 - Suzuka</option>
+            <option value="1" >2026-03-15 - Shanghai</option>
+            <option value="2" >2026-03-08 - Melbourne</option>
         </select>
     </div>
     
@@ -88,176 +88,14 @@
                             <th onclick="sortTable(5)">Pts</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-            <td>1</td>
-            <td><span class="driver-code">ANT</span></td>
-            <td>Kimi Antonelli</td>
-            <td>Mercedes</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>2</td>
-            <td><span class="driver-code">RUS</span></td>
-            <td>George Russell</td>
-            <td>Mercedes</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>3</td>
-            <td><span class="driver-code">PIA</span></td>
-            <td>Oscar Piastri</td>
-            <td>McLaren</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>4</td>
-            <td><span class="driver-code">LEC</span></td>
-            <td>Charles Leclerc</td>
-            <td>Ferrari</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>5</td>
-            <td><span class="driver-code">NOR</span></td>
-            <td>Lando Norris</td>
-            <td>McLaren</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>6</td>
-            <td><span class="driver-code">HAM</span></td>
-            <td>Lewis Hamilton</td>
-            <td>Ferrari</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>7</td>
-            <td><span class="driver-code">GAS</span></td>
-            <td>Pierre Gasly</td>
-            <td>Alpine</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>8</td>
-            <td><span class="driver-code">HAD</span></td>
-            <td>Isack Hadjar</td>
-            <td>Red Bull Racing</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>9</td>
-            <td><span class="driver-code">BOR</span></td>
-            <td>Gabriel Bortoleto</td>
-            <td>Audi</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>10</td>
-            <td><span class="driver-code">LIN</span></td>
-            <td>Arvid Lindblad</td>
-            <td>Racing Bulls</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>11</td>
-            <td><span class="driver-code">VER</span></td>
-            <td>Max Verstappen</td>
-            <td>Red Bull Racing</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>12</td>
-            <td><span class="driver-code">OCO</span></td>
-            <td>Esteban Ocon</td>
-            <td>Haas F1 Team</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>13</td>
-            <td><span class="driver-code">HUL</span></td>
-            <td>Nico Hulkenberg</td>
-            <td>Audi</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>14</td>
-            <td><span class="driver-code">LAW</span></td>
-            <td>Liam Lawson</td>
-            <td>Racing Bulls</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>15</td>
-            <td><span class="driver-code">COL</span></td>
-            <td>Franco Colapinto</td>
-            <td>Alpine</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>16</td>
-            <td><span class="driver-code">SAI</span></td>
-            <td>Carlos Sainz</td>
-            <td>Williams</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>17</td>
-            <td><span class="driver-code">ALB</span></td>
-            <td>Alexander Albon</td>
-            <td>Williams</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>18</td>
-            <td><span class="driver-code">BEA</span></td>
-            <td>Oliver Bearman</td>
-            <td>Haas F1 Team</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>19</td>
-            <td><span class="driver-code">PER</span></td>
-            <td>Sergio Perez</td>
-            <td>Cadillac</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>20</td>
-            <td><span class="driver-code">BOT</span></td>
-            <td>Valtteri Bottas</td>
-            <td>Cadillac</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>21</td>
-            <td><span class="driver-code">ALO</span></td>
-            <td>Fernando Alonso</td>
-            <td>Aston Martin</td>
-            <td></td>
-            <td>0</td>
-        </tr><tr>
-            <td>22</td>
-            <td><span class="driver-code">STR</span></td>
-            <td>Lance Stroll</td>
-            <td>Aston Martin</td>
-            <td></td>
-            <td>0</td>
-        </tr>
+                    <tbody id="resultsBody">
                     </tbody>
                 </table>
             </div>
             
             <div class="card">
                 <h2>⚡ Fastest Laps</h2>
-                <table>
-                    <thead>
-                        <tr><th>Driver</th><th>Lap</th><th>Time</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td colspan="3">No data</td></tr>
-                    </tbody>
-                </table>
+                <p style="color:#888">No data available for qualifying</p>
             </div>
         </div>
     </div>
@@ -266,45 +104,34 @@
         <div class="card">
             <h2>📱 WhatsApp Report</h2>
             <p style="color: #888; margin-bottom: 15px;">Copy and paste into WhatsApp:</p>
-            <div class="whatsapp-box" id="whatsappReport">🏎️ *日本大獎賽* | 📅 2026-03-28
-
-🥇 ANT Kimi Antonelli (Mercedes)
-🥈 RUS George Russell (Mercedes)
-🥉 PIA Oscar Piastri (McLaren)
-4. LEC Charles Leclerc (Ferrari)
-5. NOR Lando Norris (McLaren)
-6. HAM Lewis Hamilton (Ferrari)
-7. GAS Pierre Gasly (Alpine)
-8. HAD Isack Hadjar (Red)
-9. BOR Gabriel Bortoleto (Audi)
-10. LIN Arvid Lindblad (Racing)
-11. VER Max Verstappen (Red)
-12. OCO Esteban Ocon (Haas)
-13. HUL Nico Hulkenberg (Audi)
-14. LAW Liam Lawson (Racing)
-15. COL Franco Colapinto (Alpine)
-16. SAI Carlos Sainz (Williams)
-17. ALB Alexander Albon (Williams)
-18. BEA Oliver Bearman (Haas)
-19. PER Sergio Perez (Cadillac)
-20. BOT Valtteri Bottas (Cadillac)
-21. ALO Fernando Alonso (Aston)
-22. STR Lance Stroll (Aston)
-
-📊 #F1</div>
+            <div class="whatsapp-box" id="whatsappReport"></div>
             <button class="copy-btn" onclick="copyWhatsapp()">📋 Copy to Clipboard</button>
         </div>
     </div>
     
     <script>
-        let raceData = [{"id": 3, "name": "Unknown Race", "country": "2026-03-28", "report": "\ud83c\udfce\ufe0f *\u65e5\u672c\u5927\u734e\u8cfd* | \ud83d\udcc5 2026-03-28\n\n\ud83e\udd47 ANT Kimi Antonelli (Mercedes)\n\ud83e\udd48 RUS George Russell (Mercedes)\n\ud83e\udd49 PIA Oscar Piastri (McLaren)\n4. LEC Charles Leclerc (Ferrari)\n5. NOR Lando Norris (McLaren)\n6. HAM Lewis Hamilton (Ferrari)\n7. GAS Pierre Gasly (Alpine)\n8. HAD Isack Hadjar (Red)\n9. BOR Gabriel Bortoleto (Audi)\n10. LIN Arvid Lindblad (Racing)\n11. VER Max Verstappen (Red)\n12. OCO Esteban Ocon (Haas)\n13. HUL Nico Hulkenberg (Audi)\n14. LAW Liam Lawson (Racing)\n15. COL Franco Colapinto (Alpine)\n16. SAI Carlos Sainz (Williams)\n17. ALB Alexander Albon (Williams)\n18. BEA Oliver Bearman (Haas)\n19. PER Sergio Perez (Cadillac)\n20. BOT Valtteri Bottas (Cadillac)\n21. ALO Fernando Alonso (Aston)\n22. STR Lance Stroll (Aston)\n\n\ud83d\udcca #F1"}, {"id": 1, "name": "Unknown Race", "country": "2026-03-15", "report": "\ud83c\udfce\ufe0f *\u4e2d\u570b\u5927\u734e\u8cfd* | \ud83d\udcc5 2026-03-15\n\n\ud83e\udd47 ANT Kimi Antonelli (Mercedes)\n\ud83e\udd48 RUS George Russell (Mercedes) +5.515s\n\ud83e\udd49 HAM Lewis Hamilton (Ferrari) +25.267s\n4. LEC Charles Leclerc (Ferrari) +28.894s\n5. BEA Oliver Bearman (Haas) +57.268s\n6. GAS Pierre Gasly (Alpine) +59.647s\n7. LAW Liam Lawson (Racing) +80.588s\n8. HAD Isack Hadjar (Red) +87.247s\n9. SAI Carlos Sainz (Williams)\n10. COL Franco Colapinto (Alpine)\n11. HUL Nico Hulkenberg (Audi)\n12. LIN Arvid Lindblad (Racing)\n13. BOT Valtteri Bottas (Cadillac)\n14. OCO Esteban Ocon (Haas)\n15. PER Sergio Perez (Cadillac)\n16. VER Max Verstappen (Red)\n17. ALO Fernando Alonso (Aston)\n18. STR Lance Stroll (Aston) +39.429s\n19. PIA Oscar Piastri (McLaren)\n20. NOR Lando Norris (McLaren)\n21. BOR Gabriel Bortoleto (Audi)\n22. ALB Alexander Albon (Williams)\n\n\ud83d\udcca #F1"}, {"id": 2, "name": "Unknown Race", "country": "2026-03-08", "report": "\ud83c\udfce\ufe0f *\u6fb3\u6d32\u5927\u734e\u8cfd* | \ud83d\udcc5 2026-03-08\n\n\ud83e\udd47 RUS George Russell (Mercedes)\n\ud83e\udd48 ANT Kimi Antonelli (Mercedes) +2.974s\n\ud83e\udd49 LEC Charles Leclerc (Ferrari) +15.519s\n4. HAM Lewis Hamilton (Ferrari) +16.144s\n5. NOR Lando Norris (McLaren) +51.741s\n6. VER Max Verstappen (Red) +54.617s\n7. BEA Oliver Bearman (Haas)\n8. LIN Arvid Lindblad (Racing)\n9. BOR Gabriel Bortoleto (Audi)\n10. GAS Pierre Gasly (Alpine)\n11. OCO Esteban Ocon (Haas)\n12. ALB Alexander Albon (Williams)\n13. LAW Liam Lawson (Racing)\n14. COL Franco Colapinto (Alpine)\n15. SAI Carlos Sainz (Williams)\n16. PER Sergio Perez (Cadillac)\n17. STR Lance Stroll (Aston)\n18. ALO Fernando Alonso (Aston)\n19. BOT Valtteri Bottas (Cadillac)\n20. HAD Isack Hadjar (Red) +20.590s\n21. PIA Oscar Piastri (McLaren)\n22. HUL Nico Hulkenberg (Audi)\n\n\ud83d\udcca #F1"}];
+        let raceData = [{"id": 3, "name": "Unknown Race", "country": "2026-03-28", "circuit": "Suzuka", "report": "\ud83c\udfce\ufe0f *\u65e5\u672c\u5927\u734e\u8cfd* | \ud83d\udcc5 2026-03-28\n\n\ud83e\udd47 ANT Kimi Antonelli (Mercedes)\n\ud83e\udd48 RUS George Russell (Mercedes)\n\ud83e\udd49 PIA Oscar Piastri (McLaren)\n4. LEC Charles Leclerc (Ferrari)\n5. NOR Lando Norris (McLaren)\n6. HAM Lewis Hamilton (Ferrari)\n7. GAS Pierre Gasly (Alpine)\n8. HAD Isack Hadjar (Red)\n9. BOR Gabriel Bortoleto (Audi)\n10. LIN Arvid Lindblad (Racing)\n11. VER Max Verstappen (Red)\n12. OCO Esteban Ocon (Haas)\n13. HUL Nico Hulkenberg (Audi)\n14. LAW Liam Lawson (Racing)\n15. COL Franco Colapinto (Alpine)\n16. SAI Carlos Sainz (Williams)\n17. ALB Alexander Albon (Williams)\n18. BEA Oliver Bearman (Haas)\n19. PER Sergio Perez (Cadillac)\n20. BOT Valtteri Bottas (Cadillac)\n21. ALO Fernando Alonso (Aston)\n22. STR Lance Stroll (Aston)\n\n\ud83d\udcca #F1", "results": [{"pos": 1, "code": "ANT", "name": "Kimi Antonelli", "team": "Mercedes", "gap": "", "pts": 0.0}, {"pos": 2, "code": "RUS", "name": "George Russell", "team": "Mercedes", "gap": "", "pts": 0.0}, {"pos": 3, "code": "PIA", "name": "Oscar Piastri", "team": "McLaren", "gap": "", "pts": 0.0}, {"pos": 4, "code": "LEC", "name": "Charles Leclerc", "team": "Ferrari", "gap": "", "pts": 0.0}, {"pos": 5, "code": "NOR", "name": "Lando Norris", "team": "McLaren", "gap": "", "pts": 0.0}, {"pos": 6, "code": "HAM", "name": "Lewis Hamilton", "team": "Ferrari", "gap": "", "pts": 0.0}, {"pos": 7, "code": "GAS", "name": "Pierre Gasly", "team": "Alpine", "gap": "", "pts": 0.0}, {"pos": 8, "code": "HAD", "name": "Isack Hadjar", "team": "Red Bull Racing", "gap": "", "pts": 0.0}, {"pos": 9, "code": "BOR", "name": "Gabriel Bortoleto", "team": "Audi", "gap": "", "pts": 0.0}, {"pos": 10, "code": "LIN", "name": "Arvid Lindblad", "team": "Racing Bulls", "gap": "", "pts": 0.0}, {"pos": 11, "code": "VER", "name": "Max Verstappen", "team": "Red Bull Racing", "gap": "", "pts": 0.0}, {"pos": 12, "code": "OCO", "name": "Esteban Ocon", "team": "Haas F1 Team", "gap": "", "pts": 0.0}, {"pos": 13, "code": "HUL", "name": "Nico Hulkenberg", "team": "Audi", "gap": "", "pts": 0.0}, {"pos": 14, "code": "LAW", "name": "Liam Lawson", "team": "Racing Bulls", "gap": "", "pts": 0.0}, {"pos": 15, "code": "COL", "name": "Franco Colapinto", "team": "Alpine", "gap": "", "pts": 0.0}, {"pos": 16, "code": "SAI", "name": "Carlos Sainz", "team": "Williams", "gap": "", "pts": 0.0}, {"pos": 17, "code": "ALB", "name": "Alexander Albon", "team": "Williams", "gap": "", "pts": 0.0}, {"pos": 18, "code": "BEA", "name": "Oliver Bearman", "team": "Haas F1 Team", "gap": "", "pts": 0.0}, {"pos": 19, "code": "PER", "name": "Sergio Perez", "team": "Cadillac", "gap": "", "pts": 0.0}, {"pos": 20, "code": "BOT", "name": "Valtteri Bottas", "team": "Cadillac", "gap": "", "pts": 0.0}, {"pos": 21, "code": "ALO", "name": "Fernando Alonso", "team": "Aston Martin", "gap": "", "pts": 0.0}, {"pos": 22, "code": "STR", "name": "Lance Stroll", "team": "Aston Martin", "gap": "", "pts": 0.0}]}, {"id": 1, "name": "Unknown Race", "country": "2026-03-15", "circuit": "Shanghai", "report": "\ud83c\udfce\ufe0f *\u4e2d\u570b\u5927\u734e\u8cfd* | \ud83d\udcc5 2026-03-15\n\n\ud83e\udd47 ANT Kimi Antonelli (Mercedes)\n\ud83e\udd48 RUS George Russell (Mercedes) +5.515s\n\ud83e\udd49 HAM Lewis Hamilton (Ferrari) +25.267s\n4. LEC Charles Leclerc (Ferrari) +28.894s\n5. BEA Oliver Bearman (Haas) +57.268s\n6. GAS Pierre Gasly (Alpine) +59.647s\n7. LAW Liam Lawson (Racing) +80.588s\n8. HAD Isack Hadjar (Red) +87.247s\n9. SAI Carlos Sainz (Williams)\n10. COL Franco Colapinto (Alpine)\n11. HUL Nico Hulkenberg (Audi)\n12. LIN Arvid Lindblad (Racing)\n13. BOT Valtteri Bottas (Cadillac)\n14. OCO Esteban Ocon (Haas)\n15. PER Sergio Perez (Cadillac)\n16. VER Max Verstappen (Red)\n17. ALO Fernando Alonso (Aston)\n18. STR Lance Stroll (Aston) +39.429s\n19. PIA Oscar Piastri (McLaren)\n20. NOR Lando Norris (McLaren)\n21. BOR Gabriel Bortoleto (Audi)\n22. ALB Alexander Albon (Williams)\n\n\ud83d\udcca #F1", "results": [{"pos": 1, "code": "ANT", "name": "Kimi Antonelli", "team": "Mercedes", "gap": "", "pts": 0.0}, {"pos": 2, "code": "RUS", "name": "George Russell", "team": "Mercedes", "gap": "5.515s", "pts": 0.0}, {"pos": 3, "code": "HAM", "name": "Lewis Hamilton", "team": "Ferrari", "gap": "25.267s", "pts": 0.0}, {"pos": 4, "code": "LEC", "name": "Charles Leclerc", "team": "Ferrari", "gap": "28.894s", "pts": 0.0}, {"pos": 5, "code": "BEA", "name": "Oliver Bearman", "team": "Haas F1 Team", "gap": "57.268s", "pts": 0.0}, {"pos": 6, "code": "GAS", "name": "Pierre Gasly", "team": "Alpine", "gap": "59.647s", "pts": 0.0}, {"pos": 7, "code": "LAW", "name": "Liam Lawson", "team": "Racing Bulls", "gap": "80.588s", "pts": 0.0}, {"pos": 8, "code": "HAD", "name": "Isack Hadjar", "team": "Red Bull Racing", "gap": "87.247s", "pts": 0.0}, {"pos": 9, "code": "SAI", "name": "Carlos Sainz", "team": "Williams", "gap": "", "pts": 0.0}, {"pos": 10, "code": "COL", "name": "Franco Colapinto", "team": "Alpine", "gap": "", "pts": 0.0}, {"pos": 11, "code": "HUL", "name": "Nico Hulkenberg", "team": "Audi", "gap": "", "pts": 0.0}, {"pos": 12, "code": "LIN", "name": "Arvid Lindblad", "team": "Racing Bulls", "gap": "", "pts": 0.0}, {"pos": 13, "code": "BOT", "name": "Valtteri Bottas", "team": "Cadillac", "gap": "", "pts": 0.0}, {"pos": 14, "code": "OCO", "name": "Esteban Ocon", "team": "Haas F1 Team", "gap": "", "pts": 0.0}, {"pos": 15, "code": "PER", "name": "Sergio Perez", "team": "Cadillac", "gap": "", "pts": 0.0}, {"pos": 16, "code": "VER", "name": "Max Verstappen", "team": "Red Bull Racing", "gap": "", "pts": 0.0}, {"pos": 17, "code": "ALO", "name": "Fernando Alonso", "team": "Aston Martin", "gap": "", "pts": 0.0}, {"pos": 18, "code": "STR", "name": "Lance Stroll", "team": "Aston Martin", "gap": "39.429s", "pts": 0.0}, {"pos": 19, "code": "PIA", "name": "Oscar Piastri", "team": "McLaren", "gap": "", "pts": 0.0}, {"pos": 20, "code": "NOR", "name": "Lando Norris", "team": "McLaren", "gap": "", "pts": 0.0}, {"pos": 21, "code": "BOR", "name": "Gabriel Bortoleto", "team": "Audi", "gap": "", "pts": 0.0}, {"pos": 22, "code": "ALB", "name": "Alexander Albon", "team": "Williams", "gap": "", "pts": 0.0}]}, {"id": 2, "name": "Unknown Race", "country": "2026-03-08", "circuit": "Melbourne", "report": "\ud83c\udfce\ufe0f *\u6fb3\u6d32\u5927\u734e\u8cfd* | \ud83d\udcc5 2026-03-08\n\n\ud83e\udd47 RUS George Russell (Mercedes)\n\ud83e\udd48 ANT Kimi Antonelli (Mercedes) +2.974s\n\ud83e\udd49 LEC Charles Leclerc (Ferrari) +15.519s\n4. HAM Lewis Hamilton (Ferrari) +16.144s\n5. NOR Lando Norris (McLaren) +51.741s\n6. VER Max Verstappen (Red) +54.617s\n7. BEA Oliver Bearman (Haas)\n8. LIN Arvid Lindblad (Racing)\n9. BOR Gabriel Bortoleto (Audi)\n10. GAS Pierre Gasly (Alpine)\n11. OCO Esteban Ocon (Haas)\n12. ALB Alexander Albon (Williams)\n13. LAW Liam Lawson (Racing)\n14. COL Franco Colapinto (Alpine)\n15. SAI Carlos Sainz (Williams)\n16. PER Sergio Perez (Cadillac)\n17. STR Lance Stroll (Aston)\n18. ALO Fernando Alonso (Aston)\n19. BOT Valtteri Bottas (Cadillac)\n20. HAD Isack Hadjar (Red) +20.590s\n21. PIA Oscar Piastri (McLaren)\n22. HUL Nico Hulkenberg (Audi)\n\n\ud83d\udcca #F1", "results": [{"pos": 1, "code": "RUS", "name": "George Russell", "team": "Mercedes", "gap": "", "pts": 0.0}, {"pos": 2, "code": "ANT", "name": "Kimi Antonelli", "team": "Mercedes", "gap": "2.974s", "pts": 0.0}, {"pos": 3, "code": "LEC", "name": "Charles Leclerc", "team": "Ferrari", "gap": "15.519s", "pts": 0.0}, {"pos": 4, "code": "HAM", "name": "Lewis Hamilton", "team": "Ferrari", "gap": "16.144s", "pts": 0.0}, {"pos": 5, "code": "NOR", "name": "Lando Norris", "team": "McLaren", "gap": "51.741s", "pts": 0.0}, {"pos": 6, "code": "VER", "name": "Max Verstappen", "team": "Red Bull Racing", "gap": "54.617s", "pts": 0.0}, {"pos": 7, "code": "BEA", "name": "Oliver Bearman", "team": "Haas F1 Team", "gap": "", "pts": 0.0}, {"pos": 8, "code": "LIN", "name": "Arvid Lindblad", "team": "Racing Bulls", "gap": "", "pts": 0.0}, {"pos": 9, "code": "BOR", "name": "Gabriel Bortoleto", "team": "Audi", "gap": "", "pts": 0.0}, {"pos": 10, "code": "GAS", "name": "Pierre Gasly", "team": "Alpine", "gap": "", "pts": 0.0}, {"pos": 11, "code": "OCO", "name": "Esteban Ocon", "team": "Haas F1 Team", "gap": "", "pts": 0.0}, {"pos": 12, "code": "ALB", "name": "Alexander Albon", "team": "Williams", "gap": "", "pts": 0.0}, {"pos": 13, "code": "LAW", "name": "Liam Lawson", "team": "Racing Bulls", "gap": "", "pts": 0.0}, {"pos": 14, "code": "COL", "name": "Franco Colapinto", "team": "Alpine", "gap": "", "pts": 0.0}, {"pos": 15, "code": "SAI", "name": "Carlos Sainz", "team": "Williams", "gap": "", "pts": 0.0}, {"pos": 16, "code": "PER", "name": "Sergio Perez", "team": "Cadillac", "gap": "", "pts": 0.0}, {"pos": 17, "code": "STR", "name": "Lance Stroll", "team": "Aston Martin", "gap": "", "pts": 0.0}, {"pos": 18, "code": "ALO", "name": "Fernando Alonso", "team": "Aston Martin", "gap": "", "pts": 0.0}, {"pos": 19, "code": "BOT", "name": "Valtteri Bottas", "team": "Cadillac", "gap": "", "pts": 0.0}, {"pos": 20, "code": "HAD", "name": "Isack Hadjar", "team": "Red Bull Racing", "gap": "20.590s", "pts": 0.0}, {"pos": 21, "code": "PIA", "name": "Oscar Piastri", "team": "McLaren", "gap": "", "pts": 0.0}, {"pos": 22, "code": "HUL", "name": "Nico Hulkenberg", "team": "Audi", "gap": "", "pts": 0.0}]}];
         
         function showTab(tabName) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            
             event.target.classList.add('active');
             document.getElementById(tabName).classList.add('active');
+        }
+        
+        function buildResultsTable(results) {
+            let html = '';
+            for (let r of results) {
+                html += `<tr>
+                    <td>${r.pos}</td>
+                    <td><span class="driver-code">${r.code}</span></td>
+                    <td>${r.name}</td>
+                    <td>${r.team}</td>
+                    <td>${r.gap || '-'}</td>
+                    <td>${r.pts}</td>
+                </tr>`;
+            }
+            return html;
         }
         
         function loadRace(raceId) {
@@ -312,11 +139,14 @@
             const race = raceData.find(r => r.id === raceId);
             if (!race) return;
             
+            // Update race info
+            document.getElementById('raceInfo').textContent = race.circuit + ' • ' + race.country;
+            
+            // Update results table
+            document.getElementById('resultsBody').innerHTML = buildResultsTable(race.results);
+            
             // Update WhatsApp report
             document.getElementById('whatsappReport').textContent = race.report;
-            
-            // Show alert (full data reload would need backend)
-            alert('Report loaded for: ' + race.country + ' ' + race.name);
         }
         
         function sortTable(n) {
@@ -362,6 +192,9 @@
                 alert('Copied to clipboard!');
             });
         }
+        
+        // Load initial race
+        loadRace(3);
     </script>
 </body>
 </html>
