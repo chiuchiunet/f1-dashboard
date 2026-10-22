@@ -75,5 +75,12 @@
         "gap": 1.692
       }
     ]
+  },
+  "Miami GP_2026-05-03": {
+    "race": "Miami GP",
+    "circuit": "Miami",
+    "date": "2026-05-03",
+    "notes": "Race scheduled for 20:00 local (00:00 UTC 2026-05-04)",
+    "results": []
   }
 }
